@@ -18,6 +18,7 @@ function computerPlay(){
 
 
 function playGame(){
+    //The below loop was removed so the game can continue until there is a winner at 5 rounds won
     //for (var i=0; i<5; i++){
         let prompt = window.prompt('Rock, Paper or Scissors?');
             playerSelection = prompt.toLowerCase();
@@ -30,13 +31,6 @@ function playGame(){
         else {
             return checkWinner();
         }
-        /*else if (playerScore == 5){
-            return("You beat the computer!");
-        }
-        else if (computerScore==5){
-            return("Computer wins this round :( Refresh to try again!");
-        }
-        */
 }
 
 function playRound(playerSelection, computerSelection){   
@@ -81,6 +75,4 @@ function checkWinner(){
     else {
         console.log("The computer won this round. Refresh to try again!");
     }
-
-
 }
