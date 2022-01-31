@@ -70,9 +70,9 @@ function score(){
 
 function checkWinner(){
     if (playerScore > computerScore){
-        console.log("You beat the computer!");
+        alert("You beat the computer!");
     }
     else {
-        console.log("The computer won this round. Refresh to try again!");
+        alert("The computer won this round. Refresh to try again!");
     }
 }
