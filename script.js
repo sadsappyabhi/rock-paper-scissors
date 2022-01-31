@@ -1,6 +1,7 @@
 //globally define the three choices in an array
 let choice = ['rock', 'paper', 'scissors'];
-
+let playerScore = 0
+let computerScore = 0
 
 
 function computerPlay(){
@@ -14,71 +15,72 @@ function computerPlay(){
     //   return choice[Math.floor(Math.random() * choice.length)];
 
 }
-// Commenting these out so I can test below
-/*
-let prompt = window.prompt('Rock, Paper or Scissors?');
-playerSelection = prompt.toLowerCase();
-*/
 
-//let playerSelection = 'rock';
 
-/*
-let computerSelection = computerPlay();
-
-function playRound(playerSelection, computerSelection){   
-     
-    if (playerSelection === computerSelection) {
-      console.log("It's a tie!");
-    }
-    if (playerSelection === 'rock' && computerSelection === 'paper'){
-        console.log("Computer played Paper - You lose :(");
-    }
-    else if(playerSelection === 'rock' && computerSelection === 'scissors'){
-        console.log("Computer played Scissors - You win!! :D");
-    }
-    else if(playerSelection === 'paper' && computerSelection === 'rock'){
-        console.log("Computer played Rock - You win!! :D");
-    }
-    else if(playerSelection === 'paper' && computerSelection === 'scissors'){
-        console.log("Computer played Scissors - You lose :(");
-    }
-    else if(playerSelection === 'scissors' && computerSelection === 'rock'){
-        console.log("Computer played Rock - You lose :(");
-    }
-    else if(playerSelection ==='scissors' && computerSelection === 'paper'){
-        console.log("Computer played Paper - You win! :D");
-    }
+function playGame(){
+    //for (var i=0; i<5; i++){
+        let prompt = window.prompt('Rock, Paper or Scissors?');
+            playerSelection = prompt.toLowerCase();
+        let computerSelection = (computerPlay());
+            console.log(playRound(playerSelection, computerSelection));
+            console.log(score());
+        if (playerScore < 5 && computerScore < 5){
+            playGame();
+        }
+        else {
+            return checkWinner();
+        }
+        /*else if (playerScore == 5){
+            return("You beat the computer!");
+        }
+        else if (computerScore==5){
+            return("Computer wins this round :( Refresh to try again!");
+        }
+        */
 }
-*/
 
-for (var i=0; i<5; i++){
-let prompt = window.prompt('Rock, Paper or Scissors?');
-playerSelection = prompt.toLowerCase();
-let computerSelection = (computerPlay());
-    console.log(playRound(playerSelection, computerSelection));
-}
 function playRound(playerSelection, computerSelection){   
          
     if (playerSelection === computerSelection) {
       return ("It's a tie!");
     }
     if (playerSelection === 'rock' && computerSelection === 'paper'){
+        computerScore++;
         return("Computer played Paper - You lose :(");
     }
     else if(playerSelection === 'rock' && computerSelection === 'scissors'){
+        playerScore++;
         return("Computer played Scissors - You win!! :D");
     }
     else if(playerSelection === 'paper' && computerSelection === 'rock'){
+        playerScore++;
         return("Computer played Rock - You win!! :D");
     }
     else if(playerSelection === 'paper' && computerSelection === 'scissors'){
+        computerScore++;
         return("Computer played Scissors - You lose :(");
     }
     else if(playerSelection === 'scissors' && computerSelection === 'rock'){
+        computerScore++;
         return("Computer played Rock - You lose :(");
     }
     else if(playerSelection ==='scissors' && computerSelection === 'paper'){
+        playerScore++;
         return("Computer played Paper - You win! :D");
     }
 } 
 
+function score(){
+    return('You: ' + playerScore + ' Computer: ' + computerScore)
+}
+
+function checkWinner(){
+    if (playerScore > computerScore){
+        console.log("You beat the computer!");
+    }
+    else {
+        console.log("The computer won this round. Refresh to try again!");
+    }
+
+
+}
