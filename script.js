@@ -36,31 +36,31 @@ function playGame(){
 function playRound(playerSelection, computerSelection){   
          
     if (playerSelection === computerSelection) {
-      return ("It's a tie!");
+      return ("It's a tie! Play again!");
     }
     if (playerSelection === 'rock' && computerSelection === 'paper'){
         computerScore++;
-        return("Computer played Paper - You lose :(");
+        return("Computer played Paper - You lose this round :(");
     }
     else if(playerSelection === 'rock' && computerSelection === 'scissors'){
         playerScore++;
-        return("Computer played Scissors - You win!! :D");
+        return("Computer played Scissors - You win this round!! :D");
     }
     else if(playerSelection === 'paper' && computerSelection === 'rock'){
         playerScore++;
-        return("Computer played Rock - You win!! :D");
+        return("Computer played Rock - You win this round!! :D");
     }
     else if(playerSelection === 'paper' && computerSelection === 'scissors'){
         computerScore++;
-        return("Computer played Scissors - You lose :(");
+        return("Computer played Scissors - You lose this round :(");
     }
     else if(playerSelection === 'scissors' && computerSelection === 'rock'){
         computerScore++;
-        return("Computer played Rock - You lose :(");
+        return("Computer played Rock - You lose this round :(");
     }
     else if(playerSelection ==='scissors' && computerSelection === 'paper'){
         playerScore++;
-        return("Computer played Paper - You win! :D");
+        return("Computer played Paper - You win this round!! :D");
     }
 } 
 
@@ -73,6 +73,7 @@ function checkWinner(){
         alert("You beat the computer!");
     }
     else {
-        alert("The computer won this round. Refresh to try again!");
+        return("The computer won this round. Want to try again?");
     }
 }
+
