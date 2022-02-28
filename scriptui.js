@@ -12,19 +12,19 @@ function computerSelection(){
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', () => {
     let playerSelection = 'rock';
-    console.log(playRound('rock', computerSelection()));
+    alert(playRound('rock', computerSelection()));
 })
 
 const paper = document.querySelector('#paper');
 paper.addEventListener('click', () => {
     let playerSelection = 'paper';
-    console.log(playRound('paper', computerSelection()));
+    alert(playRound('paper', computerSelection()));
 })
 
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', () => {
     let playerSelection = 'scissors';
-    console.log(playRound('scissors', computerSelection()));
+    alert(playRound('scissors', computerSelection()));
 })
 
 
