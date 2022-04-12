@@ -1,7 +1,7 @@
 
 const choice = ['rock', 'paper', 'scissors'];
-let playerScore = 0
-let computerScore = 0
+let playerScore = 0;
+let computerScore = 0;
 
 function computerSelection(){
     let index = Math.floor(Math.random() * choice.length);
@@ -13,19 +13,24 @@ const rock = document.querySelector('#rock');
 rock.addEventListener('click', () => {
     let playerSelection = 'rock';
     alert(playRound('rock', computerSelection()));
-})
+    updateScoreboard();
+});
 
 const paper = document.querySelector('#paper');
 paper.addEventListener('click', () => {
     let playerSelection = 'paper';
     alert(playRound('paper', computerSelection()));
-})
+    updateScoreboard();
+});
 
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', () => {
     let playerSelection = 'scissors';
     alert(playRound('scissors', computerSelection()));
-})
+    updateScoreboard();
+});
+
+
 
 
 function playRound(playerSelection, computerSelection){   
@@ -58,3 +63,11 @@ function playRound(playerSelection, computerSelection){
         return("Computer played Paper - You win this round!! :D");
     }
 } 
+
+function updateScoreboard () {
+    const scoreBoard = document.querySelector('#scoreBoard');
+    const score = document.createElement('div');
+    //score.classList.add('score'); //adds the class of 'score' 
+    score.textContent = `You: ${playerScore} Computer: ${computerScore}`;
+    scoreBoard.appendChild(score);
+}
