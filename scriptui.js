@@ -14,6 +14,7 @@ rock.addEventListener('click', () => {
     let playerSelection = 'rock';
     alert(playRound('rock', computerSelection()));
     updateScoreboard();
+   
 });
 
 const paper = document.querySelector('#paper');
@@ -67,7 +68,19 @@ function playRound(playerSelection, computerSelection){
 function updateScoreboard () {
     const scoreBoard = document.querySelector('#scoreBoard');
     const score = document.createElement('div');
-    //score.classList.add('score'); //adds the class of 'score' 
-    score.textContent = `You: ${playerScore} Computer: ${computerScore}`;
-    scoreBoard.appendChild(score);
+    if (playerScore < 5 && computerScore < 5){
+        score.textContent = `You: ${playerScore} Computer: ${computerScore}`;
+        scoreBoard.appendChild(score);
+        return
+    }
+    if (playerScore === 5){
+        score.textContent = "You beat the computer!";
+        scoreBoard.appendChild(score);
+    }
+    else {
+        score.textContent = "The computer beat you!";
+        scoreBoard.appendChild(score);
+    }
+    
+    
 }
